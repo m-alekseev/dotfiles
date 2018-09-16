@@ -1,0 +1,43 @@
+*foreground: #737c80
+*background: #212629
+
+!! black
+*color0: #111313
+*color8: #424446
+!! red
+*color1: #9e6b71
+*color9: #b69094
+!! green
+*color2: #719e6b
+*color10: #94b690
+!! yellow
+*color3: #9e986c
+*color11: #b5b18f
+!! blue
+*color4: #6c8b9e
+*color12: #90a7b6
+!! magenta
+*color5: #986b9e
+*color13: #b290b6
+!! cyan
+*color6: #6b9e98
+*color14: #90b6b3
+!! white
+*color7: #b8baba
+*color15: #cdcfce
+
+URxvt.depth:		32
+URxvt.font: 		xft:FiraCode-Regular.ttf:size=14
+URxvt.scrollBar:	false
+URxvt.cursorColor:	white
+
+URxvt.perl-ext-common: default,matcher,resize-font
+URxvt.url-launcher: /usr/bin/xdg-open
+URxvt.matcher.button: 1
+
+URxvt.keysym.C-Down:  resize-font:smaller
+URxvt.keysym.C-Up:    resize-font:bigger
+
+! disable default rxvt bindings
+URxvt.iso14755: false
+URxvt.iso14755_52: false
