@@ -1,12 +1,18 @@
-theme = "solarized-dark"
 icons = "awesome"
+
+[theme]
+name = "solarized-dark"
+
+[[block]]
+block = "focused_window"
+max_width = 21
 
 [[block]]
 block = "net"
 device = "wlp2s0"
 ssid = true
 speed_up = false
-graph_up = false
+speed_down = false
 interval = 5
 
 [[block]]
@@ -25,21 +31,24 @@ alert = 10.0
 
 [[block]]
 block = "memory"
+format_mem = "{Mum}MB/{MTm}MB({Mup}%)"
+format_swap = "{SUm}MB/{STm}MB({SUp}%)"
 display_type = "memory"
-format_mem = "{Mup}%"
-format_swap = "{SUp}%"
+icons = true
+clickable = true
+interval = 5
+warning_mem = 80
+warning_swap = 80
+critical_mem = 95
+critical_swap = 95
 
 [[block]]
 block = "cpu"
 interval = 1
 
 [[block]]
-block = "load"
-interval = 1
-format = "{1m}"
-
-[[block]]
 block = "sound"
+step_width = 3
 
 [[block]]
 block = "time"

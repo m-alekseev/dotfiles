@@ -100,10 +100,9 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-# added by Anaconda3 installer
-export PATH="/home/mike/.anaconda3/bin:$PATH"
-
 autoload -Uz promptinit
 promptinit
-
 prompt redhat
+
+# added by Anaconda3 installer
+export PATH="/home/mike/.anaconda3/bin:$PATH"
