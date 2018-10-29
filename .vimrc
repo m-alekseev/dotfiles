@@ -20,6 +20,8 @@ set showmatch " highlight matching [{()}]
 
 set incsearch " search as characters are entered
 set hlsearch " highligh matches
+set smartcase " Enable smart-case search
+set ignorecase " Always case-insensitive
 
 nnoremap <leader><space> :nohlsearch<CR> " turn off search highlight
 " move vertically by visual line

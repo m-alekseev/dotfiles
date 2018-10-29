@@ -3,7 +3,7 @@
 #
 # Should you change your keyboard layout some time, delete
 # this file and re-run i3-config-wizard(1).
-#
+
 
 # i3 config file (v4)
 #
@@ -12,7 +12,13 @@
 set $mod Mod4
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font pango:DejaVu Sans Mono 12
+font pango:DejaVu Sans Mono 14, Font Awesome 14
+
+# i3-gaps conf
+for_window [class="^.*"] border pixel 2
+gaps inner 30
+gaps outer 5
+smart_gaps on
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
@@ -32,7 +38,6 @@ floating_modifier $mod
 bindsym $mod+Return exec urxvt
 
 # kill focused window
-bindsym $mod+Shift+q kill
 bindsym $mod+q kill
 
 # start dmenu (a program launcher)
@@ -41,7 +46,7 @@ bindsym $mod+q kill
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
-bindsym $mod+d exec rofi -theme solarized -font "FiraCome Regular 14" -show run
+bindsym $mod+d exec rofi -theme solarized -font "Fira Code 14" -show run
 
 # change focus
 bindsym $mod+j focus left
@@ -166,44 +171,39 @@ bindsym $mod+r mode "resize"
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
-bar {
-	font pango:DejaVu Sans Mono 14, FiraCode Regular 14
-        status_command ~/bin/i3status-rs ~/.config/i3/status.toml
-	position top
-	colors {
-   	     separator #666666
-   	     background #222222
-   	     statusline #dddddd
-   	     focused_workspace #0088CC #0088CC #ffffff
-   	     active_workspace #333333 #333333 #ffffff
-   	     inactive_workspace #333333 #333333 #888888
-   	     urgent_workspace #2f343a #900000 #ffffff
-   	}
-}
+# bar {
+# 	font pango:Fira Code 12, DejaVu Sans Mono 12, Font Awesome 12
+#     status_command i3status
+# 	position top
+# }
+exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
 # Open file manager
 bindsym $mod+m exec urxvt -e ranger
 
-# i3-gaps conf
-gaps inner 10
-gaps outer 10
-smart_gaps on
-
 # Autoload
 exec --no-startup-id nm-applet
-exec xinput --set-prop "SynPS/2 Synaptics TouchPad" "libinput Tapping Enabled" 1
-exec xinput --set-prop "SynPS/2 Synaptics TouchPad" "libinput Natural Scrolling Enabled" 1
-exec setxkbmap -model pc105 -layout us,ru -variant winkeys -option grp:win_space_toggle
+# exec xinput --set-prop "SynPS/2 Synaptics TouchPad" "libinput Tapping Enabled" 1
+# exec xinput --set-prop "SynPS/2 Synaptics TouchPad" "libinput Natural Scrolling Enabled" 1
+
+# Enable us,ru layout change on win-space
+exec --no-startup-id ~/.config/i3/keyboard_layout.sh
+
+# xrandr config for 2 monitors
+exec --no-startup-id ~/.screenlayout/arandrConfig.sh
 
 # Composite manager
-exec --no-startup-id compton --config ~/.config/compton.conf -b
+exec --no-startup-id compton --vsync opengl-swc --backend glx -CGb
 
 # Wallpaper
-exec feh --bg-scale ~/Pictures/Pixel-079.jpg
+exec --no-startup-id feh --bg-scale ~/Pictures/pixel-landscape.jpg
 
 # Lockscreen
-bindsym $mod+Control+l exec i3lock -c 000000
+bindsym $mod+Control+l exec i3lock-fancy
 
 # Change volume levels
-bindsym $mod+plus exec --no-startup-id amixer sset Master 5%+
-bindsym $mod+minus exec --no-startup-id amixer sset Master 5%-
+# bindsym $mod+plus exec --no-startup-id amixer sset Master 5%+
+# bindsym $mod+minus exec --no-startup-id amixer sset Master 5%-
+
+bindsym $mod+plus exec amixer -q -D pulse sset Master 5%+
+bindsym $mod+minus exec amixer -q -D pulse sset Master 5%-
