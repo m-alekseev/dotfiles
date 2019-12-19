@@ -1,6 +1,6 @@
 export TERM="xterm-256color"
 
-ZSH_TMUX_ITERM2="true"
+#ZSH_TMUX_AUTOSTART=true
 
 # I you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
@@ -13,9 +13,6 @@ export ZSH="/Users/maalekseev/.oh-my-zsh"
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 ZSH_THEME="powerlevel9k/powerlevel9k"
-
-# zsh tmux settings
-#ZSH_TMUX_AUTOSTART="true"
 
 # POWERLEVEL9K theme configuration
 POWERLEVEL9K_MODE='nerdfont-complete'
