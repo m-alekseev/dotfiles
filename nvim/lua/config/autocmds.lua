@@ -8,7 +8,16 @@
 -- e.g. vim.api.nvim_del_augroup_by_name("lazyvim_wrap_spell")
 
 vim.api.nvim_create_autocmd("BufEnter", {
-  callback = function()
-    vim.diagnostic.config({ virtual_text = false })
-  end,
+	callback = function()
+		vim.diagnostic.config({ virtual_text = false })
+	end,
+})
+
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = "rust",
+	group = vim.api.nvim_create_augroup("rust_disable_single_quotes", { clear = true }),
+	callback = function()
+		MiniPairs.unmap("i", "'", "''")
+	end,
+	desc = "Disable single quotes for Rust",
 })
