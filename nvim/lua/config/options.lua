@@ -6,3 +6,6 @@ vim.g.lazyvim_python_ruff = "ruff"
 vim.g.snacks_animate = false
 vim.g.snacks_indent = false
 vim.opt.list = false
+vim.g.lazyvim_prettier_needs_config = false
+vim.opt.shiftwidth = 4
+vim.opt.tabstop = 4
