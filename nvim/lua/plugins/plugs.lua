@@ -1,18 +1,12 @@
 return {
 	{
-		-- need it to python's venv to work, lol
-		"nvim-telescope/telescope.nvim",
-		keys = {
-			-- add a keymap to browse plugin files
-			-- stylua:ignore
-			{
-				"<leader>fp",
-				function()
-					require("telescope.builtin").find_files({ cwd = require("lazy.core.config").options.root })
-				end,
-				desc = "Find Plugin File",
-			},
-		},
+		"Wansmer/langmapper.nvim",
+		lazy = false,
+		priority = 1, -- High priority is needed if you will use `autoremap()`
+		config = function()
+			require("langmapper").setup({--[[ your config ]]
+			})
+		end,
 	},
 	{
 		"folke/which-key.nvim",
