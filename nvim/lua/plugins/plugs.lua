@@ -8,6 +8,25 @@ return {
 	{
 		"saghen/blink.cmp",
 		opts = {
+			sources = {
+				providers = {
+					snippets = {
+						enabled = false,
+					},
+					buffer = {
+						enabled = true,
+						max_items = 5,
+						min_keyword_length = 3,
+						opts = {
+							get_bufnrs = function()
+								return vim.tbl_filter(function(bufnr)
+									return vim.bo[bufnr].buftype == ""
+								end, vim.api.nvim_list_bufs())
+							end,
+						},
+					},
+				},
+			},
 			keymap = {
 				-- preset = "super-tab",
 				["C-space"] = { "show_documentation", "hide_documentation" },
