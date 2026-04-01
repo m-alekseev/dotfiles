@@ -9,3 +9,4 @@ vim.opt.list = false
 vim.g.lazyvim_prettier_needs_config = false
 vim.opt.shiftwidth = 4
 vim.opt.tabstop = 4
+vim.opt.spell = false
