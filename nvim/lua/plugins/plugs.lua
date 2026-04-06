@@ -1,5 +1,13 @@
 return {
 	{
+		"folke/snacks.nvim",
+		opts = {
+			indent = {
+				enabled = false, -- disable indent lines by default
+			},
+		},
+	},
+	{
 		"folke/which-key.nvim",
 		opts = {
 			preset = "modern",
