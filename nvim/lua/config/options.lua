@@ -9,3 +9,10 @@ vim.g.lazyvim_prettier_needs_config = false
 vim.opt.shiftwidth = 4
 vim.opt.tabstop = 4
 vim.opt.spell = false
+vim.opt.spelllang = { "en", "ru" }
+
+if vim.fn.has("nvim-0.12") == 1 then
+	require("vim._core.ui2").enable({})
+end
+
+vim.opt.cmdheight = 0
