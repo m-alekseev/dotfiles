@@ -10,6 +10,8 @@ vim.opt.shiftwidth = 4
 vim.opt.tabstop = 4
 vim.opt.spell = false
 vim.opt.spelllang = { "en", "ru" }
+-- vim.g.autoformat = false
+-- vim.opt.colorcolumn = "120"
 
 if vim.fn.has("nvim-0.12") == 1 then
 	require("vim._core.ui2").enable({})

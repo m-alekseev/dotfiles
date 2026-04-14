@@ -1,4 +1,21 @@
 return {
+	-- To disable semanticTokensProvider which makes colors dimmer after a few seconds after opening a buffer
+	-- {
+	-- 	"neovim/nvim-lspconfig",
+	-- 	opts = {
+	-- 		setup = {
+	-- 			["*"] = function(_, opts)
+	-- 				local on_attach = opts.on_attach
+	-- 				opts.on_attach = function(client, bufr)
+	-- 					if on_attach then
+	-- 						on_attach(client, bufr)
+	-- 					end
+	-- 					client.server_capabilities.semanticTokensProvider = nil
+	-- 				end
+	-- 			end,
+	-- 		},
+	-- 	},
+	-- },
 	{
 		"folke/snacks.nvim",
 		opts = {
