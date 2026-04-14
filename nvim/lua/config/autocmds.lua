@@ -17,7 +17,7 @@ vim.api.nvim_create_autocmd("FileType", {
 	pattern = "rust",
 	group = vim.api.nvim_create_augroup("rust_disable_single_quotes", { clear = true }),
 	callback = function()
-		MiniPairs.unmap("i", "'", "''")
+		require("mini.pairs").unmap("i", "'", "''")
 	end,
 	desc = "Disable single quotes for Rust",
 })
