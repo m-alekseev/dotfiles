@@ -22,9 +22,9 @@ return {
 			indent = {
 				enabled = false, -- disable indent lines by default
 			},
-			explorer = {
-				enabled = false,
-			},
+			-- explorer = {
+			-- 	enabled = false,
+			-- },
 		},
 	},
 	{
@@ -32,22 +32,29 @@ return {
 		---@module 'oil'
 		---@type oil.SetupOpts
 		opts = {
-			default_file_explorer = true,
+			default_file_explorer = false,
 			view_options = {
 				show_hidden = true,
 			},
-			keymaps = {
-				["q"] = "actions.close",
-			},
+			-- keymaps = {
+			-- 	["q"] = "actions.close",
+			-- },
 		},
 		keys = {
 			{
-				"<leader>e",
+				"<leader>-",
 				function()
 					require("oil").open()
 				end,
 				desc = "Open Oil explorer",
 			},
+			-- {
+			-- 	"<leader>e",
+			-- 	function()
+			-- 		require("oil").open()
+			-- 	end,
+			-- 	desc = "open oil explorer",
+			-- },
 		},
 		-- Optional dependencies
 		dependencies = { { "nvim-mini/mini.icons", opts = {} } },
@@ -118,5 +125,13 @@ return {
 	{
 		"terrastruct/d2-vim",
 		ft = { "d2" },
+	},
+	{
+		"folke/noice.nvim",
+		opts = {
+			cmdline = {
+				enabled = false,
+			},
+		},
 	},
 }
