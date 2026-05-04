@@ -4,13 +4,14 @@
 vim.g.lazyvim_python_lsp = "pyright"
 vim.g.lazyvim_python_ruff = "ruff"
 vim.g.snacks_animate = false
-vim.opt.list = false
 vim.g.lazyvim_prettier_needs_config = false
+
+vim.opt.list = false
 vim.opt.shiftwidth = 4
 vim.opt.tabstop = 4
 vim.opt.spell = false
 vim.opt.spelllang = { "en", "ru" }
--- vim.g.autoformat = false
+vim.opt.termguicolors = true
 -- vim.opt.colorcolumn = "120"
 
 if vim.fn.has("nvim-0.12") == 1 then
