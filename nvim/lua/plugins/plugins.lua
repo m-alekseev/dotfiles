@@ -22,6 +22,20 @@ return {
 			indent = {
 				enabled = false, -- disable indent lines by default
 			},
+			terminal = {
+				win = {
+					keys = {
+						clear_terminal = {
+							"<M-l>",
+							function()
+								vim.api.nvim_chan_send(vim.bo.channel, "\x0c")
+							end,
+							mode = "t",
+							desc = "Clear",
+						},
+					},
+				},
+			},
 			-- explorer = {
 			-- 	enabled = false,
 			-- },
@@ -92,7 +106,7 @@ return {
 			},
 			keymap = {
 				-- preset = "super-tab",
-				["C-space"] = { "show_documentation", "hide_documentation" },
+				["<C-Space>"] = { "show", "show_documentation", "hide_documentation" },
 				["<C-e>"] = { "hide", "fallback" },
 				["<Tab>"] = {
 					function(cmp)
@@ -115,7 +129,8 @@ return {
 	},
 	{
 		"nvim-lualine/lualine.nvim",
-		dependencies = { "nvim-tree/nvim-web-devicons" },
+		dependencies = { { "nvim-mini/mini.icons", opts = {} } },
+		-- dependencies = { "nvim-tree/nvim-web-devicons" },
 		opts = {
 			sections = {
 				lualine_z = {},

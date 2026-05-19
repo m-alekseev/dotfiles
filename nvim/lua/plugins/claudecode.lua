@@ -1,7 +1,18 @@
 return {
 	"coder/claudecode.nvim",
 	dependencies = { "folke/snacks.nvim" },
-	config = true,
+	config = function(_, opts)
+		require("claudecode").setup(opts)
+		vim.api.nvim_create_autocmd("WinEnter", {
+			callback = function()
+				local buf = vim.api.nvim_get_current_buf()
+				local chan = vim.bo[buf].channel
+				if chan ~= 0 and vim.api.nvim_buf_get_name(buf):find("claude", 1, true) then
+					vim.api.nvim_chan_send(chan, "\x0c")
+				end
+			end,
+		})
+	end,
 	keys = {
 		{ "<leader>a", nil, desc = "AI/Claude Code" },
 		{ "<leader>ac", "<cmd>ClaudeCode<cr>", desc = "Toggle Claude" },
@@ -46,7 +57,7 @@ return {
 			snacks_win_opts = {
 				position = "right",
 				border = "single",
-				width = 0.5,
+				width = 0.4,
 				keys = {
 					normal_mode = {
 						"<M-n>",
