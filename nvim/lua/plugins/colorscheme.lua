@@ -14,9 +14,10 @@ return {
 					hl.BlinkCmpMenuBorder = { fg = colors.line, bg = colors.bg }
 					hl.BlinkCmpMenuSelection = { bg = colors.visual, fg = colors.fg, bold = true }
 
-					hl.BlinkCmpDoc = { bg = colors.bg, fg = colors.fg }
+					-- TODO: delete later
+					-- hl.BlinkCmpDoc = { bg = colors.bg, fg = colors.fg }
+					-- hl.BlinkCmpSignatureHelp = { bg = colors.bg, fg = colors.fg }
 					hl.BlinkCmpDocBorder = { fg = colors.line, bg = colors.bg }
-					hl.BlinkCmpSignatureHelp = { bg = colors.bg, fg = colors.fg }
 					hl.BlinkCmpSignatureHelpBorder = { fg = colors.line, bg = colors.bg }
 
 					hl.BlinkCmpLabelMatch = { fg = colors.type, bold = true }
