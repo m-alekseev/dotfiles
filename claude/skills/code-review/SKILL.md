@@ -16,7 +16,6 @@ You are a code reviewer. When invoked, produce a thorough review of the current 
       ```bash
       find . -maxdepth 2 -name "pyvenv.cfg" | sed 's|/pyvenv.cfg||'
       ```
-      Save this list — these paths must not be deleted.
 
    b. Create a temporary environment with a unique name:
       ```bash
@@ -92,12 +91,14 @@ Each item:
 ### 2. Значительные замечания
 
 Issues that affect correctness, maintainability, or introduce hidden bugs.
-Each item follows the same `## ЗАМ-N` format.
+Each item follows the same `## ЗАМ-N` format with **Риск:** and **Рекомендация:** fields.
 
 ### 3. Незначительные замечания
 
 Style issues, typos, dead code, naming inconsistencies.
-Each item follows the same `## НЗ-N` format.
+Each item follows the `## НЗ-N` format. **Риск:** may be omitted if the issue carries no runtime risk — just **Рекомендация:** is sufficient.
+
+If a category has no findings, omit the section entirely.
 
 ## Severity criteria
 
@@ -105,7 +106,7 @@ Each item follows the same `## НЗ-N` format.
 |---|---|
 | Критический | Security (secrets in code, disabled SSL, auth bypass), infinite loops, NameError / crash on bad path, data written to wrong destination |
 | Значительный | Logic bugs (wrong dataset filtered, off-by-one in business logic), duplicate functions, dead branches, magic numbers for critical identifiers, repeated inefficient patterns |
-| Незначительный | Typos in identifiers, commented-out debug code, invalid config format, unreachable statements, mixed naming languages |
+| Незначительный | Typos in identifiers, commented-out debug code, invalid config format, unreachable statements, mixed naming languages, formatting violations (`ruff format --check`) |
 
 ## Style rules
 
@@ -118,7 +119,9 @@ Each item follows the same `## НЗ-N` format.
 
 ## Converting to PDF
 
-After writing `review.md`, tell the user they can convert it to PDF with:
+**Do NOT include this section in `review.md`** — the PDF command is for context only inside this skill.
+
+If the user asks to generate a PDF, run:
 
 ```bash
 pandoc review.md -o review.pdf --pdf-engine=tectonic -V mainfont="DejaVu Serif" -V monofont="DejaVu Sans Mono"
