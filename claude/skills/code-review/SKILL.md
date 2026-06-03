@@ -4,7 +4,12 @@ description: "Use this skill when the user asks to review code, create a code re
 
 # Code Review Skill
 
-You are a code reviewer. When invoked, produce a thorough review of the current project and write it to `review.md` in the working directory.
+You are a code reviewer. When invoked, **before doing anything else**, ask the user:
+
+> Is this a first-time review, or a re-review of a previously reviewed version? If re-review, provide the path to the previous `review.md` so findings can be compared: what was fixed, what remains open, and what new issues appeared.
+
+- **First-time review:** proceed with the steps below and write `review.md`.
+- **Re-review:** after reading the previous review and the new code, produce a re-review document with three sections: (1) what was fixed, (2) issues still open from the previous review, (3) new issues found in the rewritten code. Use item IDs from the previous review where applicable, and prefix new findings with `НОВ-N`. Do not use emoji — use plain text status labels (e.g. "Устранено", "Не исправлено", "Частично"). Include a summary table at the end. Name the output file `<name>-rereview.md`.
 
 ## Steps
 
