@@ -1,21 +1,10 @@
 return {
-	-- To disable semanticTokensProvider which makes colors dimmer after a few seconds after opening a buffer
-	-- {
-	-- 	"neovim/nvim-lspconfig",
-	-- 	opts = {
-	-- 		setup = {
-	-- 			["*"] = function(_, opts)
-	-- 				local on_attach = opts.on_attach
-	-- 				opts.on_attach = function(client, bufr)
-	-- 					if on_attach then
-	-- 						on_attach(client, bufr)
-	-- 					end
-	-- 					client.server_capabilities.semanticTokensProvider = nil
-	-- 				end
-	-- 			end,
-	-- 		},
-	-- 	},
-	-- },
+	{
+		"chomosuke/typst-preview.nvim",
+		lazy = false, -- or ft = 'typst'
+		version = "1.*",
+		opts = {}, -- lazy.nvim will implicitly calls `setup {}`
+	},
 	{
 		"folke/snacks.nvim",
 		opts = {
@@ -145,9 +134,29 @@ return {
 	{
 		"folke/noice.nvim",
 		opts = {
+			presets = {
+				lsp_doc_border = true,
+			},
 			cmdline = {
 				enabled = false,
 			},
 		},
 	},
+	-- To disable semanticTokensProvider which makes colors dimmer after a few seconds after opening a buffer
+	-- {
+	-- 	"neovim/nvim-lspconfig",
+	-- 	opts = {
+	-- 		setup = {
+	-- 			["*"] = function(_, opts)
+	-- 				local on_attach = opts.on_attach
+	-- 				opts.on_attach = function(client, bufr)
+	-- 					if on_attach then
+	-- 						on_attach(client, bufr)
+	-- 					end
+	-- 					client.server_capabilities.semanticTokensProvider = nil
+	-- 				end
+	-- 			end,
+	-- 		},
+	-- 	},
+	-- },
 }

@@ -13,6 +13,11 @@ vim.opt.spell = false
 vim.opt.spelllang = { "en", "ru" }
 vim.opt.termguicolors = true
 -- vim.opt.colorcolumn = "120"
+vim.diagnostic.config({
+	float = {
+		border = "rounded",
+	},
+})
 
 if vim.fn.has("nvim-0.12") == 1 then
 	require("vim._core.ui2").enable({})
