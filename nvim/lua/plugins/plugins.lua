@@ -121,7 +121,8 @@ return {
 		-- dependencies = { { "nvim-mini/mini.icons", opts = {} } },
 		dependencies = { "nvim-tree/nvim-web-devicons" },
 		opts = {
-			options = { theme = "vague" },
+			-- options = { theme = "vague" },
+			options = { theme = "auto" },
 			sections = {
 				lualine_z = {},
 			},
