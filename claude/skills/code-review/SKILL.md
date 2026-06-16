@@ -1,5 +1,5 @@
 ---
-description: "Use this skill when the user asks to review code, create a code review, or write review.md. Produces a structured Russian-language review document ready for PDF export via pandoc."
+description: "Use this skill when the user asks to review code, create a code review, or write review.md. Produces a structured Russian-language review document as both .md and .typ (Typst), with PDF via typst compile."
 ---
 
 # Code Review Skill
@@ -56,6 +56,7 @@ You are a code reviewer. When invoked, **before doing anything else**, ask the u
 
 4. Identify issues across all severity levels (see below), combining manual analysis with tool output.
 5. Write `review.md` using the exact structure and format described below.
+6. Write `<same-name>.typ` following the Typst format described in "Producing the Typst file" below.
 
 ## Review structure
 
@@ -122,6 +123,85 @@ If a category has no findings, omit the section entirely.
 - Do not invent issues — only report things actually present in the code.
 - Do not report the same issue twice under different numbers.
 
+## Producing the Typst file
+
+**Do NOT include this section in `review.md`** — it is instruction for Claude only.
+
+After writing `review.md`, always also write `<same-name>.typ`. The Typst file is the canonical source for PDF export.
+
+### Page and text setup (always at the top)
+
+```typst
+#set page(margin: 2.5cm)
+#set text(size: 12pt, lang: "ru")
+#show link: set text(fill: blue)
+#show raw: set text(size: 10pt)
+```
+
+### Title block
+
+```typst
+#align(center)[
+  #text(size: 15pt, weight: "bold")[Код-ревью: <Project Name>]
+]
+#v(1em)
+```
+
+### Section headers
+
+- Top-level category: `= Критические замечания`
+- Finding: `== КРИТ-N --- <Short title>`  (three dashes for em-dash)
+
+### Finding body
+
+````typst
+*Файл:* `filename`, строка N
+*Риск:* ...
+*Рекомендация:* ...
+
+```python
+code snippet
+```
+````
+
+Use `*bold*` for bold labels. Inline code: backticks. Use `---` for em-dashes in text.
+
+### Section dividers
+
+Place `#line(length: 100%)` between findings and between major sections.
+
+### Status table (re-review only)
+
+```typst
+#table(
+  columns: (auto, 1fr, auto),
+  stroke: 0.5pt,
+  align: (left, left, left),
+  table.header([*ID*], [*Описание*], [*Статус*]),
+  [КРИТ-1], [description], [*Устранено*],
+  [КРИТ-2], [description], [Не исправлено],
+)
+```
+
+Bold `[*Устранено*]` for fixed items; plain `[Не исправлено]` for open ones.
+
+### Summary table (small font, at the end)
+
+```typst
+#[
+  #set text(size: 9pt)
+  #table(
+    columns: (auto, auto, auto, auto),
+    stroke: 0.5pt,
+    align: (left, left, left, left),
+    table.header([*Категория*], [*Всего*], [*Устранено*], [*Остаётся*]),
+    [Критические], [N], [N], [N],
+    [Значительные], [N], [N], [N],
+    [Незначительные], [N], [N], [N],
+  )
+]
+```
+
 ## Converting to PDF
 
 **Do NOT include this section in `review.md`** — the PDF command is for context only inside this skill.
@@ -129,5 +209,7 @@ If a category has no findings, omit the section entirely.
 If the user asks to generate a PDF, run:
 
 ```bash
-pandoc review.md -o review.pdf --pdf-engine=tectonic -V mainfont="DejaVu Serif" -V monofont="DejaVu Sans Mono"
+typst compile <name>.typ
 ```
+
+This produces `<name>.pdf` in the same directory. No flags needed.
