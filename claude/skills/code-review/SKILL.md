@@ -56,7 +56,6 @@ You are a code reviewer. When invoked, **before doing anything else**, ask the u
 
 4. Identify issues across all severity levels (see below), combining manual analysis with tool output.
 5. Write `review.md` using the exact structure and format described below.
-6. Write `<same-name>.typ` following the Typst format described in "Producing the Typst file" below.
 
 ## Review structure
 
@@ -202,11 +201,14 @@ Bold `[*Устранено*]` for fixed items; plain `[Не исправлено
 ]
 ```
 
-## Converting to PDF
+## Producing a PDF
 
-**Do NOT include this section in `review.md`** — the PDF command is for context only inside this skill.
+**Do NOT include this section in `review.md`** — these instructions are for Claude only.
 
-If the user asks to generate a PDF, run:
+If the user asks for a PDF, do both steps in order:
+
+1. Write `<same-name>.typ` following the format described in "Producing the Typst file" above.
+2. Run:
 
 ```bash
 typst compile <name>.typ
