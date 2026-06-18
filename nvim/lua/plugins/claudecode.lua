@@ -13,6 +13,22 @@ return {
 			end,
 		})
 	end,
+	cmd = {
+		"ClaudeCode",
+		"ClaudeCodeFocus",
+		"ClaudeCodeSelectModel",
+		"ClaudeCodeAdd",
+		"ClaudeCodeSend",
+		"ClaudeCodeTreeAdd",
+		"ClaudeCodeStatus",
+		"ClaudeCodeStart",
+		"ClaudeCodeStop",
+		"ClaudeCodeOpen",
+		"ClaudeCodeClose",
+		"ClaudeCodeDiffAccept",
+		"ClaudeCodeDiffDeny",
+		"ClaudeCodeCloseAllDiffs",
+	},
 	keys = {
 		{ "<leader>a", nil, desc = "AI/Claude Code" },
 		{ "<leader>ac", "<cmd>ClaudeCode<cr>", desc = "Toggle Claude" },
@@ -27,7 +43,7 @@ return {
 			"<leader>as",
 			"<cmd>ClaudeCodeTreeAdd<cr>",
 			desc = "Add file",
-			ft = { "NvimTree", "neo-tree", "oil", "minifiles", "netrw" },
+			ft = { "NvimTree", "neo-tree", "oil", "minifiles", "netrw", "snacks_picker_list" },
 		},
 		-- Diff management
 		{ "<leader>aa", "<cmd>ClaudeCodeDiffAccept<cr>", desc = "Accept diff" },
@@ -55,9 +71,12 @@ return {
 		opts.terminal = {
 			provider = "snacks",
 			snacks_win_opts = {
+				-- position = "float",
 				position = "right",
 				border = "single",
 				width = 0.4,
+				-- width = 0.9,
+				-- height = 0.9,
 				keys = {
 					normal_mode = {
 						"<M-n>",
@@ -73,6 +92,10 @@ return {
 					},
 				},
 			},
+		}
+		opts.diff_opts = {
+			open_in_new_tab = true,
+			keep_terminal_focus = true,
 		}
 		return opts
 	end,
