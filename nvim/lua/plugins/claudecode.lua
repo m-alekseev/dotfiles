@@ -9,6 +9,7 @@ return {
 				local chan = vim.bo[buf].channel
 				if chan ~= 0 and vim.api.nvim_buf_get_name(buf):find("claude", 1, true) then
 					vim.api.nvim_chan_send(chan, "\x0c")
+					vim.wo.winfixwidth = true
 				end
 			end,
 		})
@@ -95,7 +96,8 @@ return {
 		}
 		opts.diff_opts = {
 			open_in_new_tab = true,
-			keep_terminal_focus = true,
+			auto_resize_terminal = false,
+			hide_terminal_in_new_tab = true,
 		}
 		return opts
 	end,
