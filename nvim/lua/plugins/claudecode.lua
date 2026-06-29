@@ -5,12 +5,13 @@ return {
 		require("claudecode").setup(opts)
 		vim.api.nvim_create_autocmd("WinEnter", {
 			callback = function()
-				local buf = vim.api.nvim_get_current_buf()
-				local chan = vim.bo[buf].channel
-				if chan ~= 0 and vim.api.nvim_buf_get_name(buf):find("claude", 1, true) then
-					vim.api.nvim_chan_send(chan, "\x0c")
-					vim.wo.winfixwidth = true
-				end
+				vim.defer_fn(function()
+					local buf = vim.api.nvim_get_current_buf()
+					local chan = vim.bo[buf].channel
+					if chan ~= 0 and vim.api.nvim_buf_get_name(buf):find("claude", 1, true) then
+						vim.api.nvim_chan_send(chan, "\x0c")
+					end
+				end, 1)
 			end,
 		})
 	end,
