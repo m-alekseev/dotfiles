@@ -95,9 +95,9 @@ return {
 			},
 		}
 		opts.diff_opts = {
-			open_in_new_tab = true,
-			auto_resize_terminal = false,
-			hide_terminal_in_new_tab = true,
+			layout = "unified",
+			auto_resize_terminal = true,
+			keep_terminal_focus = false,
 		}
 		return opts
 	end,
