@@ -21,3 +21,9 @@
 - Limit initial file reads to relevant context. Ask before broad scans of project source.
 - Ask before applying any edits, installing dependencies, writing tests, or running git commands.
 - For multi-step tasks, briefly outline steps and how each will be verified before starting.
+- Before implementing, propose a brief plan and wait for confirmation. Do not run large numbers of exploratory Bash/Read commands or repeatedly say "Let me check the current state" without producing changes.
+- Re-read the actual file contents before claiming a bug exists, a rename succeeded, or a config is misnamed. Do not assert the current state without verifying it.
+
+## Editing conventions
+
+- Make only the edits requested. Do not over-anticipate or change unrelated settings (e.g. layouts, config flags); if a broader change seems useful, ask first.
