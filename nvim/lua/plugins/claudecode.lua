@@ -90,7 +90,7 @@ return {
 		}
 		opts.diff_opts = {
 			layout = "vertical",
-			open_in_new_tab = false,
+			open_in_new_tab = true,
 			keep_terminal_focus = false, -- If true, moves focus back to terminal after diff opens
 			hide_terminal_in_new_tab = false,
 			auto_resize_terminal = false, -- own terminal width via the User autocmds below
@@ -144,4 +144,3 @@ return {
 		return opts
 	end,
 }
-
