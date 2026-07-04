@@ -12,18 +12,12 @@
 
 - No comments or docstrings unless explicitly requested or critical for complex logic.
 - Match existing codebase style, indentation, and naming conventions exactly.
-- Do not refactor, rename, or clean up code beyond the stated task scope.
+- Do not refactor, rename, clean up, or change unrelated settings (e.g. layouts, config flags) beyond the stated task scope; ask first if a broader change seems useful.
 - Remove imports/variables/functions that your changes made unused; don't touch pre-existing dead code.
 - No features, abstractions, or error handling beyond what was asked.
 
 ## Workflow
 
-- Limit initial file reads to relevant context. Ask before broad scans of project source.
 - Ask before applying any edits, installing dependencies, writing tests, or running git commands.
-- For multi-step tasks, briefly outline steps and how each will be verified before starting.
-- Before implementing, propose a brief plan and wait for confirmation. Do not run large numbers of exploratory Bash/Read commands or repeatedly say "Let me check the current state" without producing changes.
+- Before broad exploration or multi-step work, briefly outline the plan (steps + how each will be verified) and wait for confirmation. For a single small edit, a plan isn't required — just ask before applying it.
 - Re-read the actual file contents before claiming a bug exists, a rename succeeded, or a config is misnamed. Do not assert the current state without verifying it.
-
-## Editing conventions
-
-- Make only the edits requested. Do not over-anticipate or change unrelated settings (e.g. layouts, config flags); if a broader change seems useful, ask first.
