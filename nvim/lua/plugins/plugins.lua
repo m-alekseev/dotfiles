@@ -121,8 +121,41 @@ return {
 		-- dependencies = { { "nvim-mini/mini.icons", opts = {} } },
 		dependencies = { "nvim-tree/nvim-web-devicons" },
 		opts = {
-			-- options = { theme = "vague" },
-			options = { theme = "auto" },
+			options = {
+				-- nvim vague theme support for lualine
+				theme = {
+					normal = {
+						a = { bg = "#6e94b2", fg = "#1c1c24", gui = "bold" },
+						b = { bg = "#252530", fg = "#cdcdcd" },
+						c = { bg = "#1c1c24", fg = "#cdcdcd" },
+					},
+					insert = {
+						a = { bg = "#7fa563", fg = "#1c1c24", gui = "bold" },
+						b = { bg = "#252530", fg = "#cdcdcd" },
+						c = { bg = "#1c1c24", fg = "#cdcdcd" },
+					},
+					visual = {
+						a = { bg = "#bb9dbd", fg = "#1c1c24", gui = "bold" },
+						b = { bg = "#252530", fg = "#cdcdcd" },
+						c = { bg = "#1c1c24", fg = "#cdcdcd" },
+					},
+					replace = {
+						a = { bg = "#d8647e", fg = "#1c1c24", gui = "bold" },
+						b = { bg = "#252530", fg = "#cdcdcd" },
+						c = { bg = "#1c1c24", fg = "#cdcdcd" },
+					},
+					command = {
+						a = { bg = "#f3be7c", fg = "#1c1c24", gui = "bold" },
+						b = { bg = "#252530", fg = "#cdcdcd" },
+						c = { bg = "#1c1c24", fg = "#cdcdcd" },
+					},
+					inactive = {
+						a = { bg = "#1c1c24", fg = "#606079" },
+						b = { bg = "#1c1c24", fg = "#606079" },
+						c = { bg = "#1c1c24", fg = "#606079" },
+					},
+				},
+			},
 			sections = {
 				lualine_z = {},
 			},
