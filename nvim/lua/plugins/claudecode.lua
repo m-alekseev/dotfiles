@@ -63,7 +63,7 @@ return {
 		local diff_width_pct = 0.2
 
 		opts.terminal = {
-			provider = "snacks",
+			provider = "none",
 			split_width_percentage = idle_width_pct,
 			snacks_win_opts = {
 				-- position = "float",
