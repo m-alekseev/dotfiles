@@ -5,7 +5,6 @@
 ## Thinking before acting
 
 - State assumptions explicitly before implementing. If uncertain or multiple interpretations exist, ask.
-- Never invent APIs, functions, types, or behavior. To verify, in order: read the source, check docs, search the web, ask the user.
 - If a simpler approach exists, say so before implementing the requested one.
 
 ## Code scope
@@ -19,5 +18,16 @@
 ## Workflow
 
 - Ask before applying any edits, installing dependencies, writing tests, or running git commands.
-- Before broad exploration or multi-step work, briefly outline the plan (steps + how each will be verified) and wait for confirmation. For a single small edit, a plan isn't required — just ask before applying it.
+- For any change touching more than one file, present a written change plan (files + intent) and wait for approval before running Edit/Write; do not start editing while still exploring. For a single small edit, a plan isn't required — just ask before applying it.
+- Answer the question that was asked before broadening. If my premise seems wrong, engage with the hypothetical first, then note the correction. Ask at most one clarifying question, and only when the answer would change the implementation.
 - Re-read the actual file contents before claiming a bug exists, a rename succeeded, or a config is misnamed. Do not assert the current state without verifying it.
+
+## Verification
+
+- Before asserting how a tool, CLI flag, or third-party library behaves, verify it: read the source, check docs, run `--help`, or search the web. State explicitly which source was checked; say "unverified" if it couldn't be confirmed.
+
+## Git Conventions
+
+- Never create a git worktree or a new branch unless explicitly asked. Make changes in the current checkout on the current branch.
+- When asked for a commit, propose the commit message first and wait for approval before committing.
+- Never add "Co-Authored-By: Claude" lines, "Claude-Session" links, or any other Anthropic/Claude attribution to commit messages.
