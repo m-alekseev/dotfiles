@@ -7,9 +7,10 @@ import json
 import re
 import subprocess
 import sys
+import tempfile
 from pathlib import Path
 
-TRANSCRIPTS_DIR = Path.cwd() / "transcripts"
+TRANSCRIPTS_DIR = Path(tempfile.gettempdir()) / "yt-transcripts"
 
 
 def extract_video_id(url_or_id: str) -> str:
