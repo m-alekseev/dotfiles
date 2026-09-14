@@ -1,0 +1,33 @@
+onboarding = false
+
+[theme]
+name = "terminal"
+
+auto_switch = false
+[keys]
+prefix = "ctrl+a"
+detach = "prefix+d"
+split_vertical = "prefix+%"
+split_horizontal = "prefix+\""
+rename_tab = "prefix+,"
+close_tab = "prefix+&"
+focus_pane_left = "prefix+h"
+focus_pane_down = "prefix+j"
+focus_pane_up = "prefix+k"
+focus_pane_right = "prefix+l"
+
+[ui]
+pane_borders = "always"
+status_indicators = "symbols"
+tab_bar_position = "bottom"
+accent = "yellow"
+
+[[ui.tab_bar_right]]
+type = "datetime"
+format = "%A %d %b %H:%M"
+
+[ui.sound]
+enabled = false
+
+[ui.toast]
+delivery = "herdr"
