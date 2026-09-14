@@ -20,9 +20,13 @@ focus_pane_right = "prefix+l"
 pane_borders = "auto"
 pane_outer_borders = true
 pane_gaps = true
+pane_scrollbars = false
 status_indicators = "symbols"
 tab_bar_position = "bottom"
 accent = "yellow"
+
+[ui.sidebar.agents]
+rows = [["state_icon", "state_text", "machine", "workspace", "tab"], ["agent"]]
 
 [[ui.tab_bar_right]]
 type = "datetime"
