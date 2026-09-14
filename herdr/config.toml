@@ -17,7 +17,9 @@ focus_pane_up = "prefix+k"
 focus_pane_right = "prefix+l"
 
 [ui]
-pane_borders = "always"
+pane_borders = "auto"
+pane_outer_borders = true
+pane_gaps = true
 status_indicators = "symbols"
 tab_bar_position = "bottom"
 accent = "yellow"
@@ -31,3 +33,6 @@ enabled = false
 
 [ui.toast]
 delivery = "herdr"
+
+[ui.toast.herdr]
+position = "top-right"
