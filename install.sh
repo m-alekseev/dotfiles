@@ -6,6 +6,8 @@ DOTFILES="$HOME/.dotfiles"
 mkdir -p "$HOME/.config" "$HOME/.claude" "$HOME/.claude-work" "$HOME/.config/herdr" "$HOME/.config/ghostty"
 
 ln -sf "$DOTFILES/tmux/.tmux.conf" "$HOME/.tmux.conf"
+ln -sf "$DOTFILES/zsh/.zshrc" "$HOME/.zshrc"
+ln -sf "$DOTFILES/zsh/.zshenv" "$HOME/.zshenv"
 ln -sf "$DOTFILES/herdr/config.toml" "$HOME/.config/herdr/config.toml"
 ln -sf "$DOTFILES/ghostty/config.ghostty" "$HOME/.config/ghostty/config.ghostty"
 ln -sf "$DOTFILES/claude/CLAUDE.md" "$HOME/.claude/CLAUDE.md"
