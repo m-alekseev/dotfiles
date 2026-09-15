@@ -20,3 +20,4 @@ if [ ! -d "$HOME/.config/nvim" ]; then
   rm -rf "$HOME/.config/nvim/.git" "$HOME/.config/nvim/lua"
 fi
 ln -sf "$DOTFILES/nvim/lua" "$HOME/.config/nvim/lua"
+ln -sf "$DOTFILES/nvim/lazyvim.json" "$HOME/.config/nvim/lazyvim.json"
