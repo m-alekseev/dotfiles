@@ -1,6 +1,9 @@
 # Requires:
 #   brew install powerlevel10k fzf zsh-syntax-highlighting zsh-autosuggestions zsh-history-substring-search
 
+export ZSH="$HOME/.oh-my-zsh"
+source $ZSH/oh-my-zsh.sh
+
 # Ignore commands that start with spaces and duplicates.
 export HISTCONTROL=ignoreboth
 
