@@ -1,5 +1,7 @@
 # Requires:
-#   brew install powerlevel10k fzf zsh-syntax-highlighting zsh-autosuggestions zsh-history-substring-search
+#   brew install tmux neovim pyenv markdownlint-cli2 typst ncurses nvm herdr powerlevel10k fzf zsh-syntax-highlighting zsh-autosuggestions zsh-history-substring-search ripgrep fd go lazygit rustup-init
+#   brew install --cask ghostty docker-desktop font-jetbrains-mono-nerd-font
+#   nvm install --lts  # node, managed via nvm, not a separate brew formula
 
 # Herdr resets TERM to xterm-256color, losing Ghostty's undercurl (Smulx) capability
 [[ -n "$HERDR_ENV" ]] && export TERM=xterm-ghostty
