@@ -1,6 +1,9 @@
 # Requires:
 #   brew install powerlevel10k fzf zsh-syntax-highlighting zsh-autosuggestions zsh-history-substring-search
 
+# Herdr resets TERM to xterm-256color, losing Ghostty's undercurl (Smulx) capability
+[[ -n "$HERDR_ENV" ]] && export TERM=xterm-ghostty
+
 export ZSH="$HOME/.oh-my-zsh"
 source $ZSH/oh-my-zsh.sh
 
