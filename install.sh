@@ -21,6 +21,7 @@ if [ ! -d "$HOME/.config/nvim" ]; then
 fi
 ln -sf "$DOTFILES/nvim/lua" "$HOME/.config/nvim/lua"
 ln -sf "$DOTFILES/nvim/lazyvim.json" "$HOME/.config/nvim/lazyvim.json"
+ln -sf "$DOTFILES/nvim/.markdownlint.jsonc" "$HOME/.config/nvim/.markdownlint.jsonc"
 
 # Herdr resets TERM, losing Ghostty's terminfo (undercurl/Smulx) — install it into ~/.terminfo so it's found regardless
 /opt/homebrew/opt/ncurses/bin/infocmp -x -A /Applications/Ghostty.app/Contents/Resources/terminfo xterm-ghostty | /opt/homebrew/opt/ncurses/bin/tic -x -o "$HOME/.terminfo" -
