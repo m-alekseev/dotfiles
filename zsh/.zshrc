@@ -12,6 +12,8 @@ case "$(uname)" in
   Linux)  source /usr/share/cachyos-zsh-config/cachyos-config.zsh ;;
 esac
 
+[[ -x /opt/homebrew/bin/brew ]] && eval "$(/opt/homebrew/bin/brew shellenv)"
+
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
