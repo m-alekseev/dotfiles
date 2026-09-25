@@ -16,9 +16,6 @@ return {
 					hl.BlinkCmpMenuBorder = { fg = colors.line, bg = colors.bg }
 					hl.BlinkCmpMenuSelection = { bg = colors.visual, fg = colors.fg, bold = true }
 
-					-- TODO: delete later
-					-- hl.BlinkCmpDoc = { bg = colors.bg, fg = colors.fg }
-					-- hl.BlinkCmpSignatureHelp = { bg = colors.bg, fg = colors.fg }
 					hl.BlinkCmpDocBorder = { fg = colors.line, bg = colors.bg }
 					hl.BlinkCmpSignatureHelpBorder = { fg = colors.line, bg = colors.bg }
 
