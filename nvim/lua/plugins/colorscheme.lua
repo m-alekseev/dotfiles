@@ -4,7 +4,9 @@ return {
 		config = function()
 			require("vague").setup({
 				transparent = false,
+				italic = false,
 				on_highlights = function(hl, colors)
+					hl.Comment = { fg = colors.comment, italic = true }
 					hl.NormalFloat = { bg = colors.bg }
 					hl.FloatBorder = { fg = colors.line, bg = colors.bg }
 					hl.FloatTitle = { fg = colors.keyword, bg = colors.bg, bold = true }
